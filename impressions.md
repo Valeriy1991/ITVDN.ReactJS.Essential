@@ -24,7 +24,13 @@
 
 #### 4 урок. Роутинг и ES2015
 
-* ...
+* Просто и кратко рассмотрены основные фичи стандарта ES6 (стрелочные функции, spread оператор, let и var, import/export, ...).
+* Введение в CSS препроцессоры (LESS, SASS, Stylus).
+* React Router, конечно, староват - 2.0.0-rc6.
+* Жутко бесят тесты - невозможно нормально прочитать вопрос, если он выглядит так:
+```
+Что будет выведено на кнопке после выполнения данного кода? import React from 'react'; import ReactDOM from 'react-dom'; const Button = React.createClass({ render() { return ( <button> {this.context.label} </button> ); } }); const Article = React.createClass({ render() { return ( <div> {children} <Button /> </div> ); } }); const App = React.createClass({ childContextTypes: { label: React.PropTypes.string }, getChildContext() { return { label: 'Like this article!' }; }, render() { return <Article> Aenean commodo ligula eget dolor </Article>; } }); ReactDOM.render( <App />, document.getElementById('mount-point') );
+```
 
 #### 5 урок. Архитектура Flux, взаимодействие с API
 
