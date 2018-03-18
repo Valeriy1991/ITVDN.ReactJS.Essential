@@ -5,20 +5,9 @@ import { Provider } from 'react-redux';
 import {createStore} from 'redux';
 
 import Chat from './Chat';
+import reducer from './reducer';
 
 // --------------------------------------
-const usersState = [
-    '@john_123',
-    '@alex_1989',
-    '@chris'
-]
-const reducer = (state = usersState, action) => {
-    if(action.type === 'ADD_NEW_USER') {
-        const userName = action.payload
-        return state.concat(userName)
-    }
-    return state
-}
 const store = createStore(reducer)
 window.store = store
 // --------------------------------------

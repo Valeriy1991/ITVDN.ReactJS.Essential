@@ -1,26 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { addNewUser } from './actions';
 
-import faker from 'faker';
+import Messages from './Messages';
+import Users from './Users';
 
 class Chat extends Component {
     render() {
-        console.log(this.props)
-        const randomUserName = `@${faker.internet.userName().toLocaleLowerCase()}`
-        const {addNewUser} = this.props
+        const { addNewUser, users, messages } = this.props
         return (
-            <div>
-                <h3>Chat</h3>
-                <button onClick={() => addNewUser(randomUserName)}>
-                    add new user
-                </button>
-                <hr />
-
-                {this.props.users.map(u => {
-                    return <p key={u}>{u}</p>
-                })}
-            </div>
+            <main className='main-wrapper'>
+                <Messages messages={messages} />
+                <Users users={users} addNewUser={addNewUser} />
+            </main>
         );
     }
 }
@@ -30,15 +24,15 @@ Chat.propTypes = {
 };
 
 const mapStateToProps = (state) => {
+    console.log(state)
     return {
-        users: state
+        users: state.usersReducer,
+        messages: state.messagesReducer
     }
 }
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        addNewUser: (userName) => {
-            dispatch({ type: 'ADD_NEW_USER', payload: userName })
-        }
+        addNewUser: bindActionCreators(addNewUser, dispatch)
     }
 }
 
