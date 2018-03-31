@@ -1,10 +1,10 @@
 #### 1 урок. 
 
-...
+* Простое и понятное описание фич Redux, когда он нужен и 3 принципа (read only store, actions, reducers)
 
 #### 2 урок. 
 
-...
+* Настройка webpack 2.2 и babel для React + ES6 + HMR + SCSS - для новичков самое то.
 
 #### 3 урок. Redux practice. Part 1
 
